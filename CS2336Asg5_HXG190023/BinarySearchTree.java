@@ -4,7 +4,6 @@ Assignment:         Binary Search Tree Cross-Reference
 Language:           Java
 
 General Description of Program:
-
     This program reads the contents of a file and displays the contents as it gets read into a binary search tree.
     The binary search tree consists of nodes, that each represent the word, the word's line number, and the count of
     the word (which will be used to check if that word already exists in the tree).
