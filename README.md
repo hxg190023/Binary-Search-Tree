@@ -15,19 +15,29 @@ Additional Notes about the Program:
   - This program will run for the given data files, Asg4Data1.txt, Asg4Data2.txt, Asg4Data3.txt, but the same cannot be said about any data file, 
     as the program was coded based on given conditions, such as how a possible text file would be. 
   - The program also has some given conditions, which include: 
+  
         - The program ignores parantheses and quotations marks.
+
         - The program considers contractions, such as "don't" as one word, and not as two words. 
+
         - The program considers plurals and variations of a word as different words. 
+
         - The program will not include the words, "the", "a", and "an", in the binary search tree, the unique word count, and the total word count. 
+
         - The program will exit after printing one set of output. 
+        
   - The exception word i.e. when printed in the tree, can be counted as one word or as two separate words. 
     Since this is not specified in the program, and is different from cases such as words that have a hyphen in the middle, this can 
     be included in the unique word count and total word count as a single word or as two separate words.
+    
         - Specifically, in this program, this exception causes the letters i and e to be included in the word count as
           two separate words. This should be accepted as an acceptable output.
+          
         - This exception happens when running data file, Asg4Data2.txt.
+        
         - Actual Output:
             e 2 320, 331
             i 11 101, 104, 122, 303, 320, 325, 326, 331, 365, 442, 445
+            
         - So, this exception causes i and e to be printed as separate words from lines 320 and 331
  */
