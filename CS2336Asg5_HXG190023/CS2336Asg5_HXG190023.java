@@ -1,12 +1,8 @@
 /*
-Name & NET-ID:      Harsh Gopalan - HXG190023
-Class & Section:    CS 2336. 005
-Assignment:         Assignment 5 - Binary Search Tree Cross-Reference
-Start / End Date:   10/25/2021 - 11/3/2021
-Purpose:            Writing this program for this class to complete Assignment 5.
-
+Name:               Harsh Gopalan
+Assignment:         Binary Search Tree Cross-Reference
+Language:           Java
 General Description of Program:
-
     This program reads the contents of a file and displays the contents as it gets read into a binary search tree.
     The binary search tree consists of nodes, that each represent the word, the word's line number, and the count of
     the word (which will be used to check if that word already exists in the tree).
@@ -14,22 +10,19 @@ General Description of Program:
     The program will then display the sorted tree and below will display the total number of unique words,
     followed by the total number of total words, followed by the total number of lines in the data file.
     The program will then exit after the final output statement has been printed.
-
-Notes for the TA/Grader:
-  - The following program resembles my Asg4, as this is continuation of that program with some changes in the data
-    structure of the program. As per the instructions, we "may use some of the code you wrote for the assignment."
-  - As per the instructions, and after talking to the instructor/professor, the datafile titled, "Asg4Data2.txt",
-    contains numbers. Since this goes against the instructions saying that "test data will not contain numbers",
-    the professor has instructed students to either consider numbers as a word or we can ignore them. Both are
-    acceptable.
-  - As per the instructions, since there is no specific requirement that we cannot use static methods, this program
-    does contain static methods.
-  - As per the instructions, this program will not keep running after one set of output is printed, as the instructions
-    state that "Your program will exit after printing the output".
-  - After talking to the instructor/professor, the exception word i.e. when printed in the tree, can be counted
-    as one word or as two separate words. Since this is not specified in the program, and is different from cases such
-    as words that have a hyphen in the middle, this can be included in the unique word count and total word count as a
-    single word or as two separate words.
+Additional Notes about the Program: 
+  - This program will remove numbers and not count them in the binary search tree, the unique word count, and the total word count. 
+  - This program will run for the given data files, Asg4Data1.txt, Asg4Data2.txt, Asg4Data3.txt, but the same cannot be said about any data file, 
+    as the program was coded based on given conditions, such as how a possible text file would be. 
+  - The program also has some given conditions, which include: 
+        - The program ignores parantheses and quotations marks.
+        - The program considers contractions, such as "don't" as one word, and not as two words. 
+        - The program considers plurals and variations of a word as different words. 
+        - The program will not include the words, "the", "a", and "an", in the binary search tree, the unique word count, and the total word count. 
+        - The program will exit after printing one set of output. 
+  - The exception word i.e. when printed in the tree, can be counted as one word or as two separate words. 
+    Since this is not specified in the program, and is different from cases such as words that have a hyphen in the middle, this can 
+    be included in the unique word count and total word count as a single word or as two separate words.
         - Specifically, in this program, this exception causes the letters i and e to be included in the word count as
           two separate words. This should be accepted as an acceptable output.
         - This exception happens when running data file, Asg4Data2.txt.
@@ -56,14 +49,14 @@ public class CS2336Asg5_HXG190023
     */
     public static String getFileFromUser(String fileName)
     {
-        // Scanner to read in the file
+        // Scanner to read in the file/
         Scanner scan = new Scanner(System.in);
 
-        // User is asked to enter the file name or the sentinel value
+        // User is asked to enter the file name or the sentinel value.
         System.out.print("Please enter the valid file name or \n" +
                 "Please enter the sentinel value * to exit the program: ");
 
-        // File gets read in
+        // File gets read in.
         fileName = scan.nextLine();
 
         // If the file name is equal to the sentinel value, then it will return the sentinel value to main.
@@ -84,10 +77,10 @@ public class CS2336Asg5_HXG190023
             System.out.print("Please enter a valid file name or \nPlease " +
                     "enter the sentinel value * to exit the program: ");
 
-            // File gets read in
+            // File gets read in.
             fileName = scan.nextLine();
 
-            // Will check for the sentinel value again
+            // Will check for the sentinel value again.
             // If the file name is equal to the sentinel value, then it will return the sentinel value to main.
             if (fileName.equals("*"))
             {
@@ -97,7 +90,7 @@ public class CS2336Asg5_HXG190023
             }
         }
 
-        // Else will return the valid file name
+        // Else will return the valid file name.
         return fileName;
 
     } // end of String getFileFromUser(String fileName)
@@ -118,7 +111,7 @@ public class CS2336Asg5_HXG190023
         // File name is stored once it is retrieved from user post-input validation.
         fileName = getFileFromUser(fileName);
 
-        // If sentinel value, then exits the program
+        // If sentinel value, then exits the program.
         if (fileName == "*")
         {
             return;
@@ -128,7 +121,7 @@ public class CS2336Asg5_HXG190023
         Scanner file = new Scanner(new File(fileName));
 
         // Calls this method to access and print the binary search tree along with
-        // the final output statements
+        // the final output statements.
         accessBinarySearchTree(file);
 
         // Closes input file
@@ -145,7 +138,7 @@ public class CS2336Asg5_HXG190023
      */
     public static void accessBinarySearchTree(Scanner file)
     {
-        // Creates an object 'binarySearch' of the CS2336Asg4_HXG190023.BinarySearchTree class
+        // Creates an object 'binarySearch' of the CS2336Asg4_HXG190023.BinarySearchTree class.
         BinarySearchTree binarySearch = new BinarySearchTree();
 
         // Stores a whole line of the file and the initial line number = 1, the number of word occurrences = 1,
@@ -159,10 +152,11 @@ public class CS2336Asg5_HXG190023
         // Reads through the entire file, line by line, until the file has no more line.
         while (file.hasNextLine())
         {
-            // Line gets stores in nextLine, and gets printed with its line number to the console
+            // Line gets stores in nextLine, and gets printed with its line number to the console.
             nextLine = file.nextLine();
             System.out.println(lineNumber + ". " + nextLine);
-            // The current line in removed of the necessary punctuations and number values.
+            
+            // The current line is removed of the necessary punctuations and number values.
             nextLine = nextLine.replaceAll("[0-9]"," ");
             nextLine = nextLine.replaceAll("-", " ");
             nextLine = nextLine.replaceAll(";", "").replaceAll(":", "")
@@ -171,18 +165,18 @@ public class CS2336Asg5_HXG190023
                     .replaceAll("\\p{Punct}", " ");
 
 
-            // Each line is tokenized to separate each word in the line
+            // Each line is tokenized to separate each word in the line.
             StringTokenizer word = new StringTokenizer(nextLine);
 
-            // Will store the tokenized word
+            // Will store the tokenized word.
             String currentWord;
 
-            // Will run until current line has no more words
+            // Will run until current line has no more words.
             while (word.hasMoreTokens())
             {
                 currentWord = word.nextToken();
 
-                // Ignores the 'ignore' words, by using the continue
+                // Ignores the 'ignore' words, by using the continue.
                 if (currentWord.equalsIgnoreCase("The")
                         || currentWord.equalsIgnoreCase("An")
                         || currentWord.equalsIgnoreCase("A"))
@@ -190,26 +184,26 @@ public class CS2336Asg5_HXG190023
                     continue;
                 }
 
-                // Sends each word to the insertNode method in the current line, until line has no more words
+                // Sends each word to the insertNode method in the current line, until line has no more words.
                 binarySearch.insertNode(currentWord, String.valueOf(lineNumber), numOfWordOccur);
 
-                // Increments the total word count by 1
+                // Increments the total word count by 1.
                 totalWordCount++;
             }
 
-            // Increments line number by 1
+            // Increments line number by 1.
             lineNumber++;
         }
 
         System.out.println("");
 
-        // Calls the traverseTree method to display the binary search tree using the inorder traversal
+        // Calls the traverseTree method to display the binary search tree using the inorder traversal.
         binarySearch.traverseTree();
 
-        // Calls the displayUniqueWordCount method to display the unique word count
+        // Calls the displayUniqueWordCount method to display the unique word count.
         binarySearch.displayUniqueWordCount();
 
-        // Prints the total number of words and the total number of lines, respectively
+        // Prints the total number of words and the total number of lines, respectively.
         System.out.println("Number of Total Words: " + totalWordCount);
         System.out.println("Total Number of Lines: " + (lineNumber - 1));
 
