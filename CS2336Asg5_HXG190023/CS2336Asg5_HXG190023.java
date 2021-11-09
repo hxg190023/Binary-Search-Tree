@@ -2,6 +2,7 @@
 Name:               Harsh Gopalan
 Assignment:         Binary Search Tree Cross-Reference
 Language:           Java
+
 General Description of Program:
     This program reads the contents of a file and displays the contents as it gets read into a binary search tree.
     The binary search tree consists of nodes, that each represent the word, the word's line number, and the count of
@@ -10,6 +11,7 @@ General Description of Program:
     The program will then display the sorted tree and below will display the total number of unique words,
     followed by the total number of total words, followed by the total number of lines in the data file.
     The program will then exit after the final output statement has been printed.
+    
 Additional Notes about the Program: 
   - This program will remove numbers and not count them in the binary search tree, the unique word count, and the total word count. 
   - This program will run for the given data files, Asg4Data1.txt, Asg4Data2.txt, Asg4Data3.txt, but the same cannot be said about any data file, 
